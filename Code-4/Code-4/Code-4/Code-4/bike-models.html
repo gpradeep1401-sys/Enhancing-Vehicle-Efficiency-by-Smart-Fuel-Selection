@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Bike Model</title>
+    <link rel="stylesheet" href="one.css">
+    <style>
+        /* Center content in the middle of the page */
+        body,
+        html {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            width: 350px;
+            height: 250px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 15px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body style="background-image: url('images/bm.jpg')">
+    <div class="container">
+        <h2>Select Bike Model</h2>
+
+        <select id="bikeModels">
+            <option value="" disabled selected>Select a bike model</option>
+        </select>
+        <br><br>
+
+        <button onclick="confirmSelection()">Confirm</button>
+    </div>
+
+    <script>
+        // Bike models for each company
+        const bikeModelsData = {
+            hero: ["Hero Splendor", "Hero HF Deluxe", "Hero Splendor 125", "Hero Pleasure", "Hero Passion Pro"],
+            honda: ["Honda Shine", "Honda Unicorn", "Honda Livo", "Honda CBR", "Honda CBR 1000RR", "Honda SP 125"],
+            tvs: ["TVS NTORQ", "TVS Jupiter", "TVS Wego", "Scooty Zest", "TVS Apache RR 310", "TVS Sport", "TVS Star City", "TVS Apache", "TVS Radeon"],
+            bajaj: ["Bajaj Pulsar NS 200", "Bajaj Dominar 400", "Bajaj Platina 110", "Bajaj Pulsar N250", "Bajaj Avenger Cruise 220"],
+            yamaha: ["Yamaha MT 15 V2", "Yamaha R15S", "Yamaha FZS-FI V3", "Yamaha FZ 25", "Yamaha R15 V4", "Yamaha R1", "Yamaha R9", "Yamaha R6", "Yamaha R7"],
+            suzuki: ["Suzuki Gixxer", "Suzuki V-Storm SX", "Suzuki Gixxer SF 250", "Suzuki Katana", "Suzuki Hayabusa"],
+            re: ["Royal Enfield Bullet", "Classic 350", "Royal Enfield Thunderbird", "Meteor 350", "Classic 500", "Interceptor 650", "Continental GT 650", "Hunter 350", "Himalayan", "Scram 411"],
+            ktm: ["KTM 200", "KTM 300", "KTM 390 series", "KTM 790 Duke", "KTM 990 Super Duke", "KTM 1290 Super Duke R", "KTM Adventure"],
+            kawasaki: ["Ninja 400R", "Ninja 650R", "Ninja ZX-6R", "Ninja ZX-10R", "Ninja ZX-12R"],
+            bmw: ["BMW GS", "BMW S1000R", "BMW S1000RR", "BMW S1000XR", "BMW M1000RR", "BMW R nineT"],
+            ducati: ["Ducati Scrambler", "Ducati Streetfighter", "Ducati Panigale V4", "Ducati Multistrada V2", "Ducati Diavel"],
+            mvAgusta: ["MV Agusta Brutale series", "MV Agusta Dragster series", "MV Agusta Rush", "MV Agusta Superveloce"],
+            triumph: ["Triumph Speed 400", "Trident 660", "Street Triple", "Speed Triple", "Scrambler 1200", "Thruxton RS", "Speed Twin 1200", "Bonneville T120"]
+        };
+
+        // Load models based on selected company
+        window.onload = function () {
+            const selectedCompany = localStorage.getItem("selectedCompany");
+            if (selectedCompany && bikeModelsData[selectedCompany]) {
+                const bikeModels = bikeModelsData[selectedCompany];
+                const bikeModelsDropdown = document.getElementById("bikeModels");
+                bikeModels.forEach(model => {
+                    const option = document.createElement("option");
+                    option.value = model;
+                    option.textContent = model;
+                    bikeModelsDropdown.appendChild(option);
+                });
+            } else {
+                alert("No bike company selected. Please go back and select a company.");
+                window.location.href = "bike-companies.html";
+            }
+        };
+
+        function confirmSelection() {
+            const selectedModel = document.getElementById("bikeModels").value;
+            if (selectedModel) {
+                localStorage.setItem("selectedModel", selectedModel);
+                alert("You selected: " + selectedModel);
+                // Redirect to years.html for manufacturing year selection
+                window.location.href = "years.html";
+            } else {
+                alert("Please select a bike model.");
+            }
+        }
+    </script>
+</body>
+
+</html>

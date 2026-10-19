@@ -1,0 +1,54 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-image: url('56.jpg')
+}
+
+.container {
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label,
+input,
+select,
+button {
+    margin-bottom: 15px;
+}
+
+input,
+select {
+    padding: 10px;
+    font-size: 1rem;
+}
+
+button {
+    padding: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.result {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: #333;
+}

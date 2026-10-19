@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Vehicle Category</title>
+    <link rel="stylesheet" href="one.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2>Select Vehicle Category</h2>
+        <button onclick="selectVehicleCategory('bike')">Bike</button>
+        <button onclick="selectVehicleCategory('car')">Car</button>
+    </div>
+    <script>
+        function selectVehicleCategory(category) {
+            localStorage.setItem("vehicleCategory", category);
+            window.location.href = category === "bike" ? "bike-companies.html" : "car-companies.html";
+        }
+    </script>
+</body>
+
+</html>

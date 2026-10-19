@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Car Model</title>
+    <link rel="stylesheet" href="one.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2>Select Car Model</h2>
+
+        <select id="carModels">
+            <option value="" disabled selected>Select a car model</option>
+        </select>
+        <br><br>
+
+        <button onclick="confirmSelection()">Confirm</button>
+    </div>
+
+    <script>
+        // Car models for each company
+        const carModelsData = {
+            maruti: ["Suzuki Swift", "Suzuki Baleno", "Suzuki Dzire", "Suzuki Ertiga", "Suzuki Fronx"],
+            hyundai: ["Hyundai Alcazar", "Hyundai Creta", "Hyundai Elantra", "Hyundai i10", "Hyundai i20", "Hyundai Tucson", "Hyundai Verna"],
+            tata: ["Tiago", "Altroz", "Tigor", "Punch", "Nexon", "Harrier", "SAFARI"],
+            hondaCar: ["City", "Civic", "Jazz", "Accord", "Amaze"],
+            skoda: ["Octavia", "Superb", "Slavia", "Kodiaq", "Kushaq"],
+            vw: ["Polo", "Vento", "Virtus", "Tiguan"],
+            mahindra: ["Mahindra Bolero", "Mahindra XUV300", "Mahindra Scorpio", "Mahindra Thar", "Mahindra XUV700", "Mahindra Xylo"],
+            toyota: ["Camry", "FORTUNER", "INNOVA", "COROLLA", "Yaris"]
+        };
+
+        // Load models based on selected car company
+        window.onload = function () {
+            const selectedCarCompany = localStorage.getItem("selectedCarCompany");
+            if (selectedCarCompany && carModelsData[selectedCarCompany]) {
+                const carModels = carModelsData[selectedCarCompany];
+                const carModelsDropdown = document.getElementById("carModels");
+                carModels.forEach(model => {
+                    const option = document.createElement("option");
+                    option.value = model;
+                    option.textContent = model;
+                    carModelsDropdown.appendChild(option);
+                });
+            } else {
+                alert("No car company selected. Please go back and select a company.");
+                window.location.href = "car-companies.html";
+            }
+        };
+
+        function confirmSelection() {
+            const selectedModel = document.getElementById("carModels").value;
+            if (selectedModel) {
+                localStorage.setItem("selectedModel", selectedModel);
+                alert("You selected: " + selectedModel);
+                // Redirect to years.html for manufacturing year selection
+                window.location.href = "years.html";
+            } else {
+                alert("Please select a car model.");
+            }
+        }
+    </script>
+</body>
+
+</html>

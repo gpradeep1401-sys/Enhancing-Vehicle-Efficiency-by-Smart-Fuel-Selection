@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Car Company</title>
+    <link rel="stylesheet" href="one.css"> <style>
+        /* Center content in the middle of the page */
+        body,
+        html {
+            height: 100%;
+            display: flow-root;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            width: 350px;
+            height: 250px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 15px;
+            font-size: 18px;
+        }
+    </style> <!-- Reused the same stylesheet -->
+</head>
+
+<body style="background-image: url('images/c2.jpg')">
+    <div class="container">
+        <h2>Select Car Company</h2>
+
+        <select id="carCompanies" required>
+            <option value="" disabled selected>Select a car company</option>
+            <option value="maruti">Maruti Suzuki</option>
+            <option value="hyundai">Hyundai</option>
+            <option value="tata">TATA</option>
+            <option value="hondaCar">Honda (Cars)</option>
+            <option value="skoda">Skoda</option>
+            <option value="vw">Volkswagen</option>
+            <option value="mahindra">Mahindra</option>
+            <option value="toyota">Toyota</option>
+        </select>
+        <br><br>
+
+        <button onclick="nextPage()">Next</button>
+    </div>
+
+    <script>
+        function nextPage() {
+            const selectedCompany = document.getElementById("carCompanies").value;
+            if (selectedCompany) {
+                localStorage.setItem("selectedCarCompany", selectedCompany);
+                window.location.href = "car-models.html";
+            } else {
+                alert("Please select a car company.");
+            }
+        }
+    </script>
+</body>
+
+</html>

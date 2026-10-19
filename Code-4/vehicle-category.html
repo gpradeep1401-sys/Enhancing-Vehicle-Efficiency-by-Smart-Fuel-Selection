@@ -1,0 +1,53 @@
+<!-- vehicle-category.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Category</title>
+    <link rel="stylesheet" href="one.css">
+    <style>
+        /* Center content in the middle of the page */
+        body,
+        html {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            width: 800px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 15px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Select Vehicle Category</h2>
+
+        <a href="bike-companies.html" onclick="setVehicleCategory('bike')">
+            <img src="bike_logo.jpg" alt="bike_image" style="margin: 3rem 20rem 0 0;" />
+        </a>
+        <a href="car-companies.html" onclick="setVehicleCategory('car')">
+            <img src="car_logo.jpg" alt="car_image" style="margin: 0 0 30rem 20rem; position:relative; bottom:200px" />
+        </a>
+    </div>
+
+    <script>
+        function setVehicleCategory(category) {
+            localStorage.setItem('vehicleCategory', category);
+        }
+    </script>
+</body>
+
+</html>
