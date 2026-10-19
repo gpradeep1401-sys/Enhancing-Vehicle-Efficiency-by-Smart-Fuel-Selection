@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fuel Type Predictor</title>
+    <link rel="stylesheet" href="one.css">
+</head>
+
+<body style="background-image:url('./images/49.jpg')" width="100%" height="100%">
+    <div class="">
+        <h1>Enhancing Vehicle Efficiency by Smart Fuel Selection</h1>
+        <form id="predictor-form" style="margin: 0.5rem;">
+            <label for="vehicleType">Select Vehicle Type:</label>
+            <select id="vehicleType" name="vehicleType" required style="margin: 0.5rem;">
+                <option value="">--Select Vehicle--</option>
+                <option value="bike">Bike</option>
+                <option value="car">Car</option>
+            </select>
+
+            <form id="predictor-form" style="margin: 0.5rem;">
+            <label for="Manufactured Year"> Manufactured Year:</label>
+            <select id="Manufactured Year" name="Manufactured Year" required style="margin: 0.5rem;">
+                <option value="">--Manufactured Year</option>
+                <option value="bike">2001-2004</option>
+                <option value="car">2005-2009</option>
+                <option value="bike">2010-2014</option>
+                <option value="car">2014-2020</option>
+                <option value="car">2021-2024</option>
+            </select>
+
+            <label for="engineCC">Enter Engine CC:</label>
+            <input type="number" id="engineCC" name="engineCC" required placeholder="Enter engine size in CC">
+
+            <button type="button" onclick="predictFuel()">Predict Fuel Type</button>
+        </form>
+
+        <div id="result" class="result"></div>
+        <button onclick="logout()">Logout</button>
+    </div>
+
+    <script src="predictor-script.js"></script>
+</body>
+
+</html>
