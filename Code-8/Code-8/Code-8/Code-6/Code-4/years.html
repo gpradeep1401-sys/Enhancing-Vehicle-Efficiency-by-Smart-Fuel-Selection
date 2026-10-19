@@ -1,0 +1,62 @@
+<!-- years.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Manufacturing Year</title>
+    <link rel="stylesheet" href="one.css">
+    <style>
+        body,
+        html {
+            height: 100%;
+            display: flow-root;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            width: 350px;
+            height: 250px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 15px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body style="background-image: url('images/4.avif')">
+    <div class="container">
+        <h2>Select Manufacturing Year</h2>
+        <select id="manufacturedYear" required>
+            <option value="" disabled selected>--Select Manufacturing Year--</option>
+            <option value="2001-2004">2001-2004</option>
+            <option value="2005-2009">2005-2009</option>
+            <option value="2010-2014">2010-2014</option>
+            <option value="2014-2020">2014-2020</option>
+            <option value="2021-2024">2021-2024</option>
+        </select>
+        <br><br>
+        <button onclick="confirmYear()">Confirm</button>
+    </div>
+
+    <script>
+        function confirmYear() {
+            const year = document.getElementById("manufacturedYear").value;
+            if (year) {
+                localStorage.setItem("selectedYear", year);
+                window.location.href = "predictor.html";
+            } else {
+                alert("Please select a manufacturing year.");
+            }
+        }
+    </script>
+</body>
+
+</html>

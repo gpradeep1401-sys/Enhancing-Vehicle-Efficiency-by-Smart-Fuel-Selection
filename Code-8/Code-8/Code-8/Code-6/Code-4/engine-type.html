@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engine Type</title>
+    <link rel="stylesheet" href="one.css">
+    <style>
+        body,
+        html {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            width: 700px;
+            height: 500px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 15px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body style="background-image: url('images/56.jpg')">
+    <div class="container">
+        <h2>Select Engine Type</h2>
+        <select id="engineType" required>
+            <option value="">--Select Engine Type--</option>
+            <option value="liquid-cooled">Liquid Cooled</option>
+            <option value="oil-cooled">Oil Cooled</option>
+            <option value="air-cooled">Air Cooled</option>
+        </select>
+        <button onclick="nextPage('engine-cc.html')">Next</button>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fuel Type Predictor</title>
+    <link rel="stylesheet" href="one.css">
+</head>
+
+<body style="background-image: url('images/49.jpg')">
+    <div class="container">
+        <h2>Enter Vehicle Details</h2>
+        <label for="engineCC">Engine CC:</label>
+        <input type="number" id="engineCC" placeholder="Enter CC" required>
+        <br><br>
+        <button onclick="confirmCC()">Confirm</button>
+        <div id="predictionResult"></div>
+        <button onclick="logout()">Logout</button>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        function confirmCC() {
+            const engineCC = document.getElementById("engineCC").value;
+            if (engineCC) {
+                localStorage.setItem("engineCC", engineCC);
+                predictFuel();
+            } else {
+                alert("Please enter the engine CC.");
+            }
+        }
+    </script>
+</body>
+
+</html>

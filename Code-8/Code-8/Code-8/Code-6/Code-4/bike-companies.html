@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Bike Company</title>
+    <link rel="stylesheet" href="one.css">
+    <style>
+        body,
+        html {
+            height: 100%;
+            display: flow-root;
+            align-items: center;
+            justify-content: left;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            width: 350px;
+            height: 250px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 15px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body style="background-image: url('images/1k.jpg')">
+    <div class="container">
+        <h2>Select Bike Company</h2>
+
+        <select id="bikeCompanies" required>
+            <option value="" disabled selected>Select a bike company</option>
+            <option value="hero">Hero MotoCorp</option>
+            <option value="honda">Honda Motorcycle and Scooter India</option>
+            <option value="tvs">TVS Motor Company</option>
+            <option value="bajaj">Bajaj Auto Ltd. (BAL)</option>
+            <option value="yamaha">Yamaha Motors</option>
+            <option value="suzuki">Suzuki Motorcycle India Pvt. Ltd.</option>
+            <option value="re">Royal Enfield</option>
+            <option value="ktm">KTM India</option>
+            <option value="kawasaki">Kawasaki</option>
+            <option value="bmw">BMW</option>
+            <option value="ducati">Ducati</option>
+            <option value="mvAgusta">MV Agusta</option>
+            <option value="triumph">Triumph</option>
+        </select>
+        <br><br>
+
+        <button onclick="nextPage()">Next</button>
+    </div>
+
+    <script>
+        function nextPage() {
+            const selectedCompany = document.getElementById("bikeCompanies").value;
+            if (selectedCompany) {
+                localStorage.setItem("selectedCompany", selectedCompany);
+                window.location.href = "bike-models.html";
+            } else {
+                alert("Please select a bike company.");
+            }
+        }
+    </script>
+</body>
+
+</html>

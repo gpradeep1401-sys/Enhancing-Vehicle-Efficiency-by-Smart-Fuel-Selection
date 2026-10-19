@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Car Model</title>
+    <link rel="stylesheet" href="one.css">
+    <style>
+        body,
+        html {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            width: 450px;
+            height: 300px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 15px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body style="background-image: url('images/98.jpg')">
+    <div class="container">
+        <h2>Select Car Model</h2>
+
+        <select id="carModels">
+            <option value="" disabled selected>Select a car model</option>
+        </select>
+        <br><br>
+
+        <button onclick="confirmSelection()">Confirm</button>
+    </div>
+
+    <script>
+        const carModelsData = {
+            maruti: ["Suzuki Swift", "Suzuki Baleno", "Suzuki Dzire", "Suzuki Ertiga", "Suzuki Fronx"],
+            hyundai: ["Hyundai Alcazar", "Hyundai Creta", "Hyundai Elantra", "Hyundai i10", "Hyundai i20", "Hyundai Tucson", "Hyundai Verna"],
+            tata: ["Tiago", "Altroz", "Tigor", "Punch", "Nexon", "Harrier", "SAFARI"],
+            hondaCar: ["City", "Civic", "Jazz", "Accord", "Amaze"],
+            skoda: ["Octavia", "Superb", "Slavia", "Kodiaq", "Kushaq"],
+            vw: ["Polo", "Vento", "Virtus", "Tiguan"],
+            mahindra: ["Mahindra Bolero", "Mahindra XUV300", "Mahindra Scorpio", "Mahindra Thar", "Mahindra XUV700", "Mahindra Xylo"],
+            toyota: ["Camry", "FORTUNER", "INNOVA", "COROLLA", "Yaris"]
+        };
+        window.onload = function () {
+            const selectedCarCompany = localStorage.getItem("selectedCarCompany");
+            if (selectedCarCompany && carModelsData[selectedCarCompany]) {
+                const carModels = carModelsData[selectedCarCompany];
+                const carModelsDropdown = document.getElementById("carModels");
+                carModels.forEach(model => {
+                    const option = document.createElement("option");
+                    option.value = model;
+                    option.textContent = model;
+                    carModelsDropdown.appendChild(option);
+                });
+            } else {
+                alert("No car company selected. Please go back and select a company.");
+                window.location.href = "car-companies.html";
+            }
+        };
+
+        function confirmSelection() {
+            const selectedModel = document.getElementById("carModels").value;
+            if (selectedModel) {
+                localStorage.setItem("selectedModel", selectedModel);
+                alert("You selected: " + selectedModel);
+                window.location.href = "years.html";
+            } else {
+                alert("Please select a car model.");
+            }
+        }
+    </script>
+</body>
+
+</html>
